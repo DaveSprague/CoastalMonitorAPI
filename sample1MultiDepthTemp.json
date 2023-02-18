@@ -1,0 +1,49 @@
+    {
+        "name": "BelfastKelpForestTemperatures",
+        "description": "Tethered Water Temperatures at Multiple Depths at the Belfast Kelp Forest Project",
+        "latitude": 44.4260,
+        "longitude": -69.0065,
+        "vertical_benchmark": "WaterSurfaceLevel",
+        "firmware_version": "0.2.1",
+        "stationary": true,
+        "sensors": {
+            "waterTemps": {
+                "description": "Water Temperature at Multiple Depths",
+                "unit": "celcuis",
+                "value type": "float",
+                "observation123s": {
+                    "wT0m": {
+                        "description": "water temperature at surface",
+                        "depth": 0
+                    },
+                    "wT2m": {
+                        "description": "water temperature at 2 meters",
+                        "depth": 2
+                    },
+                    "wT4m": {
+                        "description": "water temperature at 4 meters",
+                        "depth": "4"
+                    },
+                    "wT6m": {
+                        "description": "water temperature at 6 meters",
+                        "depth": "6"
+                    }
+                }
+            },
+            "vbat": {
+                "description": "Battery Voltage",
+                "unit": "volts",
+                "value_type": "float"
+            },
+            "iTmp": {
+                "description": "Internal Temperature",
+                "unit": "celsius",
+                "value_type": "float"
+            }
+        }
+    }
+
+    {
+        "WaterLevel,station=de09999e-947f-4d4a-8f20-0f8fc38fd001 wT0m=8.3,wT2m=7.2,wT4m=7.1,vBat=4.84 1556813561098000000 \n
+         WaterLevel,station=de09999e-947f-4d4a-8f20-0f8fc38fd001 wT0m=8.2,wT2m=7.2,wT4m=7.0 1556813561120000000 "
+    }

@@ -1,0 +1,54 @@
+    {
+        "example_create": 
+        {
+            "name": "Belfast City Dock Tide Gauge",
+            "description": "Custom-built tide gauge with Maxbotix ultrasonic sensor",
+            "latitude": 44.4259,
+            "longitude": -69.0064,
+            "altitude": 3.2,
+            "vertical_benchmark": "NAVD88",
+            "vertical_datum_offset": -5,
+            "vertical_datum_offset_unit": "meter",
+            "firmware_version": "1.2.1",
+            "stationary": true,
+            "sensors": [
+                {
+                    "name": "waterLev",
+                    "description": "Ultrasonic Water Level Height",
+                    "unit": "meter",
+                    "value type": "float",
+                    "observation123s": [
+                        {
+                            "name": "mnLv",
+                            "description": "mean water level"
+                        },
+                        {
+                            "name": "sdLv",
+                            "description": "mean water level"
+                        },
+                        {
+                            "name": "nOut",
+                            "description": "number of outiers",
+                            "value_type": "integer"
+                        }
+                    ]
+                },
+                {
+                    "name": "vbat",
+                    "description": "Battery Voltage",
+                    "unit": "volts",
+                    "value_type": "float"
+                },
+                {
+                    "name": "iTmp",
+                    "description": "Internal Temperature",
+                    "unit": "celsius",
+                    "value_type": "float"
+                }
+            ]
+        },
+        "example_obs": [
+            "WaterLevel,station=a3035a58-f536-4124-9851-045d2b8eb20d mnLv=3.520,sdLv=0.052,nOut=17 1556813561098000000",
+            "WaterLevel,station=a3035a58-f536-4124-9851-045d2b8eb20 mnLv=3.532,sdLv=0.048,nOut=12 1556813561120000000 "
+        ]
+    }

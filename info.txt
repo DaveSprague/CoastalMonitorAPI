@@ -1,0 +1,66 @@
+    3.1.1 Water Level
+    CO-OPS generates CREX water level bulletins containing the most recent six samples of sixminute observed water level data and associated tidal residuals, which are calculated by
+    subtracting astronomical tides from the observed water levels. Great Lakes stations are not
+    tidal, therefore, residual values are not calculated. Bulletins containing the six-minute data are
+    issued every thirty minutes. An example follows, and more detail on the CREX structure is
+    provided in Appendix 2.
+    KSAA30 KWBC 311844
+    CREX++
+    T000119 A001 D01021 D06025++
+    3237339 -06470331 BEPB6 2013 07 31 17 54 3038 00 07 00 06
+    00644 -0021 00653 -0023 00669 -0018 00680 -0018 00687 -0020 00693 -0023+
+    4490460 -06698290 PSBM1 2013 07 31 17 54 2860 00 07 00 06
+    01263 0105 01343 0111 01426 0116 01511 0119 01596 0119 01685 0121++
+    7777
+    In the message header:
+    • KSAA30 KWBC is the WMO header for the North Atlantic CREX message, per
+    Appendix 4.
+    • 311844: The bulletin was created on day 31 at 18:44 GMT.
+    In the Data Description section:
+    • D01021: The message contains latitude and longitude.
+    • D06025: The message contains a station ID, date/time, sea surface temperature,
+    quality control checks, and time increments, and a repeat of six water level values
+    (referenced to chart datum) and associated residuals [REF 3]. Chart datum is Mean
+    Lower Low Water (MLLW) for coastal areas, and Low Water Datum (LWD) for the
+    Great Lakes.
+    5 
+    In the Data section:
+    • 3237339 and -06470331 are the latitude and longitude respectively, and are provided to
+    5 decimal places, as described in CREX/BUFR Table D [REF 3]. In this case, the
+    coordinates are 32.37339 N and 64.70331 W. Note that positive latitude/longitude
+    values correspond to North and East, respectively and negative values correspond to
+    South and West, respectively.
+    • BEPB6 is the National Weather Service Location Identifier (NWSLI) for Bermuda.
+    Appendix 1 provides a list of the stations and associated NWSLI and NOS station
+    identifiers.
+    • 2013 07 31 17 54 is the base time (7/31/2013 17:54 GMT) used to calculate the
+    measurement times for the water level values contained in the bulletin for the given
+    station.
+    • 3038 is the sea surface temperature in Kelvin to the tenths (303.8 K).
+    • 00 07 are two checks that indicate the overall quality of the data. The first set of digits is
+    the automated water level check and indicates the quality of the data (see Appendix 5 for
+    a list of all automated checks). 00, per Appendix 5, indicates the data quality is good.
+    The second set of digits is the manual water level check that is presently not used,
+    therefore will always be set to 07, as defined in WMO Manual on Codes [REF 2].
+    • 00 06 are time increments applied to the base time to calculate the measurement
+    timestamp of the first and oldest water level value for the given station. 00 indicates the
+    number of minutes that must be added to the first measurement, which is 0. The
+    following 06 indicates the time increment between observations, and is also added to
+    the base time to determine the timestamp of the first observation123.
+    In a six-minute water level bulletin, a data record contains six water level values and six
+    associated residuals (except at Great Lakes stations). All data are reported in GMT, and are in
+    millimeters. To determine the time of each 6-minute observation123 start with the base time
+    provided in the station header record, which in this case is 7/31/2013 17:54 GMT. The station
+    header record indicates 00 minutes need to be added to 17:54 to calculate the observation123
+    time for the first and oldest water level value. Then 06 minutes are added to the first value and
+    then each succeeding observation123 time. This means for BEPB6 the data listing is:
+    Measurement date/time
+    (GMT)
+    Observed water level
+    (above MLLW) Residual
+    7/31/2013 18:00 0.644 m -0.021
+    7/31/2013 18:06 0.653 m -0.023
+    7/31/2013 18:12 0.669 m -0.018
+    7/31/2013 18:18 0.680 m -0.018
+    7/31/2013 18:24 0.687m -0.020
+    7/31/2013 18:30 0.693 m -0.023
